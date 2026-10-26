@@ -2,6 +2,8 @@ var nivel_actual: Int = 0
 // estado actual del ascensor
 var estado_acual: Estados = Estados.Idle
 
+val ultimo_boton : Botonera_interior? = null
+
 /**
  * Gestiona el cambio de estados
  */

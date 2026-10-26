@@ -2,12 +2,18 @@ var nivel_actual: Int = 0
 // estado actual del ascensor
 var estado_acual: Estados = Estados.Idle
 
-val ultimo_boton : Botonera_interior? = null
+var ultimo_boton : Botonera_interior? = null
 
 /**
  * Gestiona el cambio de estados
  */
-fun gestor(): Int {
+fun gestor(boton: Botonera_interior?= null): Int {
+
+    if (boton != null) {
+        ultimo_boton = boton
+        print("Botón pulsado: ${ultimo_boton?.name} -> Destino: ${ultimo_boton?.lugar}")
+    }
+
     when (estado_acual) {
         is Estados.Idle -> {
             nivel_actual = 0

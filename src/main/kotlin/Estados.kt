@@ -3,8 +3,20 @@ sealed class Estados {
         fun onEnter() {
             print("Estado actual: Idle")
             nivel_actual = 0
-            print("Estado actual: Reposo, nivel $nivel_actual - Avenida G. Barbón")
 
+            val boton = ultimo_boton
+
+            if (boton == Botonera_interior.nivel_1) {
+                println("Boton pulsado: ${boton.lugar}. Subiendo")
+            }
+
+            if (boton == Botonera_interior.nivel_0) {
+                println("Boton pulsado: ${boton.lugar}. Bajando")
+            }
+
+            else {
+                print("El ascensor sigue en Idle")
+            }
         }
 
         override fun toString() : String {
@@ -17,6 +29,10 @@ sealed class Estados {
             print("Estado actual: MovingUP")
             nivel_actual = 2
             print("Estado actual: Subiendo, moviendose - Nivel $nivel_actual")
+
+            nivel_actual = 1
+            print("Llegada a Plaza de Compostela - Nivel $nivel_actual")
+            estado_acual = Idle
         }
 
         override fun toString() : String {
@@ -30,6 +46,9 @@ sealed class Estados {
             print("Estado actual: MovingDOWN")
             nivel_actual = 2
             print("Estado actual: Bajando - Nivel $nivel_actual")
+
+            nivel_actual = 0
+            println("Llegada a Avenida G. Barbón - Nivel $nivel_actual")
         }
     }
 
@@ -38,6 +57,7 @@ sealed class Estados {
             print("Estado actual: Error")
             nivel_actual = -1
             print("Estado actual: Idle")
+            estado_acual = Idle
         }
 
         override fun toString() : String {

@@ -8,10 +8,12 @@ sealed class Estados {
 
             if (boton == Botonera_interior.nivel_1) {
                 println("Boton pulsado: ${boton.lugar}. Subiendo")
+                estado_acual = MovingUP
             }
 
-            if (boton == Botonera_interior.nivel_0) {
+            else if (boton == Botonera_interior.nivel_0) {
                 println("Boton pulsado: ${boton.lugar}. Bajando")
+                estado_acual = MovingDOWN
             }
 
             else {
@@ -49,6 +51,7 @@ sealed class Estados {
 
             nivel_actual = 0
             println("Llegada a Avenida G. Barbón - Nivel $nivel_actual")
+            estado_acual = Idle
         }
     }
 

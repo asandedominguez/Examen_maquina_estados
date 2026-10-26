@@ -5,7 +5,9 @@ sealed class Estados {
     object Error : Estados()
 }
 
-enum class Botonera_interior {
-    nivel_0,
-    nivel_1
+enum class Botonera_interior (
+    val lugar : String
+) {
+    nivel_0("Avenida G. Barbón"),
+    nivel_1("Plaza de Compostela")
 }
